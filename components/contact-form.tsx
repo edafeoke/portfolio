@@ -6,18 +6,20 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { toast, Toaster } from 'sonner'
+import { useRef } from 'react'
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xdkddydd') // Replace with your actual form ID
-
+  const formRef = useRef<HTMLFormElement>(null)
   if (state.succeeded) {
     toast.info('Thank you for your message!')
+    formRef.current?.reset()
   }
 
   return (
     <section className='relative isolate'>
       <div className='relative'>
-        <form onSubmit={handleSubmit} className='mt-16 lg:flex-auto' noValidate>
+        <form ref={formRef} onSubmit={handleSubmit} className='mt-16 lg:flex-auto' noValidate>
           <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
             {/* Name */}
             <div>

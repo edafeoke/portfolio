@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import authorImage from '@/public/images/authors/hamed.png'
+import authorImage from '@/public/images/authors/edafeoke.png'
 
 export default function Intro() {
   return (
@@ -19,14 +19,14 @@ export default function Intro() {
         </p>
       </div>
       <div className='relative'>
-        {/* <Image
+        <Image
           className='flex-1 rounded-lg grayscale'
           src={authorImage}
           alt='Edafe Oke'
           width={175}
           height={175}
           priority
-        /> */}
+        />
       </div>
     </section>
   )
