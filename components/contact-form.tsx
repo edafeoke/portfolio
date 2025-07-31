@@ -5,16 +5,13 @@ import { useForm, ValidationError } from '@formspree/react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { toast, Toaster } from 'sonner'
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xdkddydd') // Replace with your actual form ID
 
   if (state.succeeded) {
-    return (
-      <p className='mt-4 text-green-600 text-center'>
-        Thanks for contacting us!
-      </p>
-    )
+    toast.info('Thank you for your message!')
   }
 
   return (
@@ -55,6 +52,7 @@ export default function ContactForm() {
           </p>
         </form>
       </div>
+      <Toaster/>
     </section>
   )
 }
