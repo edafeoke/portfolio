@@ -19,10 +19,10 @@ export async function sendEmail(data: ContactFormInputs) {
   try {
     const { name, email, message } = result.data
     const { data, error } = await resend.emails.send({
-      from: 'hello@hamedbahram.io',
+      from: 'greatedafeoke@gmail.com',
       to: [email],
-      cc: ['hello@hamedbahram.io'],
-      subject: 'Contact form submission',
+      cc: ['greatedafeoke@gmail.com'],
+      subject: 'Contact form submission from edafeoke.vercel.app',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       react: ContactFormEmail({ name, email, message })
     })

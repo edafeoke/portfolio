@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@formspree/react':
+        specifier: ^3.0.0
+        version: 3.0.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.9.0(react-hook-form@7.52.2(react@19.1.1))
@@ -135,6 +138,15 @@ packages:
   '@eslint/js@8.57.0':
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@formspree/core@4.0.0':
+    resolution: {integrity: sha512-geNlUut5nME1Ztej5Pzx1BrlQ1fFIcJYIqmF+Vm0jaUbpZxjXvt7SDOGeQVkuxn80QJiIHlwBGGjSBFjPX/KDw==}
+
+  '@formspree/react@3.0.0':
+    resolution: {integrity: sha512-8PufBZ4l13VmCp9xTGQXwyF6mZtYSecqgTlFuMo5Fbe4Q6zUk7PMU2uKOwIaytZyTyJgFVCvdbpQElPPBKYNLw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0
 
   '@hookform/resolvers@3.9.0':
     resolution: {integrity: sha512-bU0Gr4EepJ/EQsH/IwEzYLsT/PEj5C0ynLQ4m+GSHS+xKH4TfSelhluTgOaoc4kA5s7eCsQbM4wvZLzELmWzUg==}
@@ -415,6 +427,17 @@ packages:
 
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
+
+  '@stripe/react-stripe-js@3.8.1':
+    resolution: {integrity: sha512-BExESIwXDwZgUqFmWj046BGpsqK4vNaBCdcmRvagQzOovjO2aBAt8rofW47K1TJRnt3iTH5dciBdHJ7ZA958ng==}
+    peerDependencies:
+      '@stripe/stripe-js': '>=1.44.1 <8.0.0'
+      react: '>=16.8.0 <20.0.0'
+      react-dom: '>=16.8.0 <20.0.0'
+
+  '@stripe/stripe-js@5.10.0':
+    resolution: {integrity: sha512-PTigkxMdMUP6B5ISS7jMqJAKhgrhZwjprDqR1eATtFfh0OpKVNp110xiH+goeVdrJ29/4LeZJR4FaHHWstsu0A==}
+    engines: {node: '>=12.16'}
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
@@ -2419,6 +2442,18 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
+  '@formspree/core@4.0.0':
+    dependencies:
+      '@stripe/stripe-js': 5.10.0
+
+  '@formspree/react@3.0.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+    dependencies:
+      '@formspree/core': 4.0.0
+      '@stripe/react-stripe-js': 3.8.1(@stripe/stripe-js@5.10.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@stripe/stripe-js': 5.10.0
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
+
   '@hookform/resolvers@3.9.0(react-hook-form@7.52.2(react@19.1.1))':
     dependencies:
       react-hook-form: 7.52.2(react@19.1.1)
@@ -2659,6 +2694,15 @@ snapshots:
     dependencies:
       domhandler: 5.0.3
       selderee: 0.11.0
+
+  '@stripe/react-stripe-js@3.8.1(@stripe/stripe-js@5.10.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+    dependencies:
+      '@stripe/stripe-js': 5.10.0
+      prop-types: 15.8.1
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
+
+  '@stripe/stripe-js@5.10.0': {}
 
   '@swc/helpers@0.5.15':
     dependencies:
@@ -3263,7 +3307,7 @@ snapshots:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.9.0(eslint@8.57.0)
       eslint-plugin-react: 7.35.0(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
@@ -3286,8 +3330,8 @@ snapshots:
       debug: 4.3.6
       enhanced-resolve: 5.17.1
       eslint: 8.57.0
-      eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
+      eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.6
       is-core-module: 2.15.0
@@ -3298,7 +3342,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-module-utils@2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0):
+  eslint-module-utils@2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -3309,7 +3353,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0):
+  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
     dependencies:
       array-includes: 3.1.8
       array.prototype.findlastindex: 1.2.5
@@ -3319,7 +3363,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
+      eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       hasown: 2.0.2
       is-core-module: 2.15.0
       is-glob: 4.0.3
