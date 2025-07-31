@@ -9,6 +9,8 @@ import { notFound } from 'next/navigation'
 import NewsletterForm from '@/components/newsletter-form'
 import { use } from 'react'
 
+type Params = Promise<{ slug: string }>
+
 export async function generateStaticParams() {
   const posts = await getPosts()
   const slugs = posts.map(post => ({ slug: post.slug }))
@@ -16,7 +18,7 @@ export async function generateStaticParams() {
   return slugs
 }
 
-export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Post({ params }: { params: Params }) {
   const { slug } = use(params)
   // const { slug } = params
   const post = use(getPostBySlug(slug))
