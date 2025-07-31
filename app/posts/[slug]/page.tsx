@@ -7,6 +7,7 @@ import { getPosts, getPostBySlug } from '@/lib/posts'
 import { ArrowLeftIcon } from '@radix-ui/react-icons'
 import { notFound } from 'next/navigation'
 import NewsletterForm from '@/components/newsletter-form'
+import { use } from 'react'
 
 export async function generateStaticParams() {
   const posts = await getPosts()
@@ -16,9 +17,9 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+  const { slug } = use(params)
   // const { slug } = params
-  const post = await getPostBySlug(slug)
+  const post = use(getPostBySlug(slug))
 
   if (!post) {
     notFound()
