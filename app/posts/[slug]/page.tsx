@@ -1,27 +1,20 @@
-import Link from 'next/link'
-import Image from 'next/image'
-
-import { formatDate } from '@/lib/utils'
 import MDXContent from '@/components/mdx-content'
-import { getPosts, getPostBySlug } from '@/lib/posts'
-import { ArrowLeftIcon } from '@radix-ui/react-icons'
-import { notFound } from 'next/navigation'
 import NewsletterForm from '@/components/newsletter-form'
-import { use } from 'react'
+import { getPostBySlug } from '@/lib/posts'
+import { formatDate } from '@/lib/utils'
+import { ArrowLeftIcon } from '@radix-ui/react-icons'
+import Image from 'next/image'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import React from 'react'
 
-type Params = Promise<{ slug: string }>
-
-export async function generateStaticParams() {
-  const posts = await getPosts()
-  const slugs = posts.map(post => ({ slug: post.slug }))
-
-  return slugs
+type Props = {
+  params: Promise<{ slug: string }>
 }
 
-export default async function Post({ params }: { params: Params }) {
-  const { slug } = use(params)
-  // const { slug } = params
-  const post = use(getPostBySlug(slug))
+const page = async (props: Props) => {
+  const { slug } = await props.params
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     notFound()
@@ -70,3 +63,5 @@ export default async function Post({ params }: { params: Params }) {
     </section>
   )
 }
+
+export default page

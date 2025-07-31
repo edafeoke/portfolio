@@ -7,19 +7,19 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons'
 import { getProjectBySlug, getProjects } from '@/lib/projects'
 import { notFound } from 'next/navigation'
 
-export async function generateStaticParams() {
-  const projects = await getProjects()
-  const slugs = projects.map(project => ({ slug: project.slug }))
+// export async function generateStaticParams() {
+//   const projects = await getProjects()
+//   const slugs = projects.map(project => ({ slug: project.slug }))
 
-  return slugs
-}
+//   return slugs
+// }
 
 export default async function Project({
   params
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const { slug } = params
+  const { slug } = await params
   const project = await getProjectBySlug(slug)
 
   if (!project) {
