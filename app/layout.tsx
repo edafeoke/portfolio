@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: 'Edafe Oke | Portfolio',
-  description: 'Edafe Oke is a frontend developer and UI/UX designer'
+  description: 'Edafe Oke is a fullstack web and mobile app developer'
 }
 
 export default function RootLayout({
